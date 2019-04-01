@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
+Route::get('/about', 'PagesController@about');
+
+Auth::routes();
+
+
+Route::resource('/posts', 'PostsController');
+Route::get('/{user}', 'UsersController@index')->name('users.index');
